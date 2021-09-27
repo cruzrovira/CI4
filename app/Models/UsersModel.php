@@ -32,7 +32,7 @@ class UsersModel extends Model
 
     // Callbacks
     // protected $allowCallbacks = true;
-    // protected $beforeInsert = [];
+    protected $beforeInsert = ['addGroup'];
     // protected $afterInsert = [];
     // protected $beforeUpdate = [];
     // protected $afterUpdate = [];
@@ -42,6 +42,12 @@ class UsersModel extends Model
     // protected $afterDelete = [];
     protected $assignGroup;
 
+    protected function addGroup($data)
+    {
+        $data['data']['id_group'] = $this->assignGroup;
+        return $data;
+    }
+
     public function withtgroup(String $groupName)
     {
         $row = $this->db
@@ -49,7 +55,8 @@ class UsersModel extends Model
             ->where('name', $groupName)
             ->get()
             ->getFirstRow();
-        if ($row !== null) {
+
+        if ($row) {
             $this->assignGroup = $row->id_group;
         }
     }

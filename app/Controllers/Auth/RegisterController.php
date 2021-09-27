@@ -12,15 +12,13 @@ class RegisterController extends BaseController
             'username' => 'cruzrovira',
             'email' => 'cruzrovira@gmail.com',
             'password' => '1234',
-            'id_group' => 2
         ];
+
         $user = new User($data);
 
         $model = model('UsersModel');
-
-        $model->withtgroup('user');
-
-        // $model->save($user);
+        $model->withtgroup(env('defaultGroup'));
+        $model->save($user);
 
         //return view('Auth/reguister');
     }
