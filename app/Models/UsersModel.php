@@ -3,6 +3,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use App\Entities\User;
+use CodeIgniter\Database\SQLite3\Table;
 
 class UsersModel extends Model
 {
@@ -39,4 +40,17 @@ class UsersModel extends Model
     // protected $afterFind = [];
     // protected $beforeDelete = [];
     // protected $afterDelete = [];
+    protected $assignGroup;
+
+    public function withtgroup(String $groupName)
+    {
+        $row = $this->db
+            ->Table('groups')
+            ->where('name =', $groupName)
+            ->get()
+            ->getFirstRow();
+        if ($row !== null) {
+            $this->assignGroup = $row->id_group;
+        }
+    }
 }

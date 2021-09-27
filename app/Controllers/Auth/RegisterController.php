@@ -17,7 +17,10 @@ class RegisterController extends BaseController
         $user = new User($data);
 
         $model = model('UsersModel');
-        $model->save($user);
+
+        d($model->withtgroup('user'));
+
+        // $model->save($user);
 
         //return view('Auth/reguister');
     }
