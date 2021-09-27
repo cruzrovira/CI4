@@ -45,8 +45,8 @@ class UsersModel extends Model
     public function withtgroup(String $groupName)
     {
         $row = $this->db
-            ->Table('groups')
-            ->where('name =', $groupName)
+            ->table('groups')
+            ->where('name', $groupName)
             ->get()
             ->getFirstRow();
         if ($row !== null) {
