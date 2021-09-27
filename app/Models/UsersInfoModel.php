@@ -2,25 +2,25 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Entities\UserInfo;
 
 class UsersInfoModel extends Model
 {
-    protected $DBGroup = 'default';
     protected $table = 'users_info';
-    protected $primaryKey = 'id';
-    protected $useAutoIncrement = true;
-    protected $insertID = 0;
-    protected $returnType = 'array';
+    protected $primaryKey = 'id_user';
+    // protected $useAutoIncrement = true;
+    // protected $insertID = 0;
+    protected $returnType = UserInfo::class;
     protected $useSoftDeletes = false;
-    protected $protectFields = true;
-    protected $allowedFields = [];
+    // protected $protectFields = true;
+    protected $allowedFields = ['id_user', 'name', 'surname', 'id_country'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
-    protected $deletedField = 'deleted_at';
+    // protected $deletedField = 'deleted_at';
 
     // Validation
     // protected $validationRules = [];

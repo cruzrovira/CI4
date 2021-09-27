@@ -13,7 +13,7 @@ class UsersInfo extends Migration
                 'type' => 'INT',
                 'constraint' => 12,
                 'unsigned' => true,
-                'auto_increment' => true,
+                // 'auto_increment' => true,
                 'null' => false
             ],
             'name' => [

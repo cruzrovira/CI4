@@ -4,6 +4,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 use App\Entities\User;
 use CodeIgniter\Database\SQLite3\Table;
+use App\Entities\UserInfo;
 
 class UsersModel extends Model
 {
@@ -33,7 +34,7 @@ class UsersModel extends Model
     // Callbacks
     // protected $allowCallbacks = true;
     protected $beforeInsert = ['addGroup'];
-    // protected $afterInsert = [];
+    protected $afterInsert = ['addUserInfoDB'];
     // protected $beforeUpdate = [];
     // protected $afterUpdate = [];
     // protected $beforeFind = [];
@@ -41,6 +42,7 @@ class UsersModel extends Model
     // protected $beforeDelete = [];
     // protected $afterDelete = [];
     protected $assignGroup;
+    protected $userInfo;
 
     protected function addGroup($data)
     {
@@ -59,5 +61,17 @@ class UsersModel extends Model
         if ($row) {
             $this->assignGroup = $row->id_group;
         }
+    }
+
+    public function addUserInfo(UserInfo $userInfo)
+    {
+        $this->userInfo = $userInfo;
+    }
+
+    protected function addUserInfoDB($data)
+    {
+        $this->userInfo->id_user = $data['id'];
+        $model = model('UsersInfoModel');
+        $model->insert($this->userInfo);
     }
 }
