@@ -11,12 +11,13 @@
     <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
         <ul>
-          <li class="is-active">
+          <li
+            class="<?= base_url(service('request')->uri->getPath()) === base_url(route_to('home')) ? 'is-active' : ''?>">
             <a
               href="<?= base_url(route_to('home')) ?>">Inicio</a>
-
           </li>
-          <li>
+          <li
+            class="<?= base_url(service('request')->uri->getPath()) === base_url(route_to('register')) ? 'is-active' : ''?>">
             <a
               href="<?= base_url(route_to('register'))?>">Reguistro</a>
           </li>

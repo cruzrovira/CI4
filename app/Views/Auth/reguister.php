@@ -34,6 +34,13 @@ Hello World!
       </div>
 
       <div class="field">
+        <label class="label">Nick</label>
+        <div class="control">
+          <input class="input" name="username" type="text" placeholder="Text input">
+        </div>
+      </div>
+
+      <div class="field">
         <label class="label">Elige tu pais</label>
         <div class="control">
           <div class="select">
