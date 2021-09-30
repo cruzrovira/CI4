@@ -1,3 +1,7 @@
+<?php
+$url = base_url(service('request')->uri->getPath());
+?>
+
 <section class="hero is-link">
   <div class="hero-body">
     <p class="title">
@@ -12,12 +16,12 @@
       <div class="container">
         <ul>
           <li
-            class="<?= base_url(service('request')->uri->getPath()) === base_url(route_to('home')) ? 'is-active' : ''?>">
+            class="<?=  $url === base_url(route_to('home')) ? 'is-active' : ''?>">
             <a
               href="<?= base_url(route_to('home')) ?>">Inicio</a>
           </li>
           <li
-            class="<?= base_url(service('request')->uri->getPath()) === base_url(route_to('register')) ? 'is-active' : ''?>">
+            class="<?= $ul === base_url(route_to('register')) ? 'is-active' : ''?>">
             <a
               href="<?= base_url(route_to('register'))?>">Reguistro</a>
           </li>
