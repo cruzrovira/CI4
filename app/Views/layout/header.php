@@ -1,5 +1,6 @@
 <?php
 $url = base_url(service('request')->uri->getPath());
+
 ?>
 
 <section class="hero is-link">
@@ -21,7 +22,7 @@ $url = base_url(service('request')->uri->getPath());
               href="<?= base_url(route_to('home')) ?>">Inicio</a>
           </li>
           <li
-            class="<?= $ul === base_url(route_to('register')) ? 'is-active' : ''?>">
+            class="<?= $url === base_url(route_to('register')) ? 'is-active' : ''?>">
             <a
               href="<?= base_url(route_to('register'))?>">Reguistro</a>
           </li>

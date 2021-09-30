@@ -45,8 +45,13 @@ Hello World!
         <div class="control">
           <div class="select">
             <select name="id_country">
-              <option>Select dropdown</option>
-              <option>With options</option>
+              <option selected disabled>Seleciona un país</option>
+
+              <?php foreach ($countries as $country): ?>
+              <option value=<?= $country->id_country?> > <?= $country->name?>
+              </option>
+              <?php endforeach?>
+
             </select>
           </div>
         </div>

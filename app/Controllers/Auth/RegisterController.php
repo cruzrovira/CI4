@@ -9,6 +9,14 @@ class RegisterController extends BaseController
 {
     public function index()
     {
+        $model = model('CountriesModel');
+
+        return view('Auth/reguister', ['countries' => $model->findAll()]);
+    }
+
+    // para alamacenar un usuario
+    public function store()
+    {
         // $data = [
         //     'name' => 'oscar',
         //     'username' => 'cruzrovira',
@@ -28,12 +36,5 @@ class RegisterController extends BaseController
         // $model->addUserInfo($userInfo);
 
         // $model->save($user);
-
-        return view('Auth/reguister');
-    }
-
-    // para alamacenar un usuario
-    public function store()
-    {
     }
 }
