@@ -31,11 +31,17 @@ class RegisterController extends BaseController
             ],
             'email' => [
                 'label' => 'Correo',
-                'rules' => 'required|valid_email|is_unique[users.email]'
+                'rules' => 'required|valid_email|is_unique[users.email]',
+                'errors' => [
+                    'is_unique' => 'El {field} ya esta siendo utilizado por alguien mas.',
+                ],
             ],
             'username' => [
                 'label' => 'Nick',
-                'rules' => 'required'
+                'rules' => 'required|is_unique[users.username]',
+                'errors' => [
+                    'is_unique' => 'El {field} ya esta siendo utilizado por alguien mas.',
+                ],
             ],
             'id_country' => [
                 'label' => 'País',
@@ -52,9 +58,8 @@ class RegisterController extends BaseController
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
-            dd($validation->getErrors());
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }
-        exit;
 
         // $data = [
         //     'name' => 'oscar',
@@ -65,15 +70,14 @@ class RegisterController extends BaseController
         //     'id_country' => 2
         // ];
 
-        // $user = new User($data);
+        $user = new User($this->request->getPost());
+        $model = model('UsersModel');
 
-        // $model = model('UsersModel');
+        $model->withtgroup(env('defaultGroup'));
 
-        // $model->withtgroup(env('defaultGroup'));
-
-        // $userInfo = new UserInfo($data);
-        // $model->addUserInfo($userInfo);
-
-        // $model->save($user);
+        $userInfo = new UserInfo($this->request->getPost());
+        $model->addUserInfo($userInfo);
+        $model->save($user);
+        return redirect()->route('login')->with('msg', ['body' => 'Usuario Reguistrado Correctamente!']);
     }
 }

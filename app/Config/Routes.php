@@ -38,6 +38,7 @@ $routes->group('/', ['namespace' => "App\Controllers\Front"], function ($routes)
 $routes->group('auth', ['namespace' => "App\Controllers\Auth"], function ($routes) {
     $routes->get('reguistro', 'RegisterController::index', ['as' => 'register']);
     $routes->post('reguistro', 'RegisterController::store');
+    $routes->get('login', 'LoginController::index', ['as' => 'login']);
 });
 
 /*
