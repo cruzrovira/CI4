@@ -39,6 +39,7 @@ $routes->group('auth', ['namespace' => "App\Controllers\Auth"], function ($route
     $routes->get('reguistro', 'RegisterController::index', ['as' => 'register']);
     $routes->post('reguistro', 'RegisterController::store');
     $routes->get('login', 'LoginController::index', ['as' => 'login']);
+    $routes->post('login', 'LoginController::login');
 });
 
 /*

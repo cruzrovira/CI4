@@ -49,9 +49,7 @@ $url = base_url(service('request')->uri->getPath());
             <a
               href="<?= base_url(route_to('register'))?>">Registro</a>
           </li>
-          <li>
-            <a>Ingreso</a>
-          </li>
+
         </ul>
       </div>
     </nav>

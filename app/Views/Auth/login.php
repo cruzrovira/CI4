@@ -23,16 +23,21 @@ Login
     </div>
     <?php endif?>
 
-    <form action="">
+    <form
+      action="<?= base_url(route_to('login'))?>"
+      method="post">
       <div class="field">
         <p class="control has-icons-left has-icons-right">
-          <input class="input" type="email" placeholder="Email">
+          <input class="input" name="email" type="email" placeholder="Email">
+        </p>
+        <p class="is-danger help"><?=session('errors.email')?>
         </p>
       </div>
       <div class="field">
         <p class="control has-icons-left">
-          <input class="input" type="password" placeholder="Password">
-
+          <input class="input" name="password" type="password" placeholder="Password">
+        </p>
+        <p class="is-danger help"><?=session('errors.password')?>
         </p>
       </div>
       <div class="field">

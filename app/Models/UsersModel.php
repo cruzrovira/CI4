@@ -3,7 +3,6 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use App\Entities\User;
-use CodeIgniter\Database\SQLite3\Table;
 use App\Entities\UserInfo;
 
 class UsersModel extends Model
@@ -73,5 +72,10 @@ class UsersModel extends Model
         $this->userInfo->id_user = $data['id'];
         $model = model('UsersInfoModel');
         $model->insert($this->userInfo);
+    }
+
+    public function UserBy(string $colum, String $value)
+    {
+        return $this->where($colum, $value)->first();
     }
 }
