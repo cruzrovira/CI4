@@ -17,6 +17,45 @@ class RegisterController extends BaseController
     // para alamacenar un usuario
     public function store()
     {
+        // $validation = service('validation');
+        $validation = \Config\Services::validation();
+
+        $validation->setRules([
+            'name' => [
+                'label' => 'Nombre',
+                'rules' => 'required|alpha_space'
+            ],
+            'surname' => [
+                'label' => 'Apellidos',
+                'rules' => 'required|alpha_space'
+            ],
+            'email' => [
+                'label' => 'Correo',
+                'rules' => 'required|valid_email|is_unique[users.email]'
+            ],
+            'username' => [
+                'label' => 'Nick',
+                'rules' => 'required'
+            ],
+            'id_country' => [
+                'label' => 'País',
+                'rules' => 'required|is_not_unique[countries.id_country]'
+            ],
+            'password' => [
+                'label' => 'Contraseña',
+                'rules' => 'required'
+            ],
+            'c-password' => [
+                'label' => 'Confirmación de contraseña',
+                'rules' => 'required|matches[password]'
+            ],
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            dd($validation->getErrors());
+        }
+        exit;
+
         // $data = [
         //     'name' => 'oscar',
         //     'username' => 'cruzrovira',

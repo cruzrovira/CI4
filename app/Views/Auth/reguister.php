@@ -12,7 +12,10 @@ Hello World!
     <h2 class="subtitle">
       Solo debes ingresar algunos datos para comenenzar
     </h2>
-    <form action="">
+    <form
+      action="<?= base_url(route_to('register'))?>"
+      method="post">
+
       <div class="field">
         <label class="label">Nombre</label>
         <div class="control">
