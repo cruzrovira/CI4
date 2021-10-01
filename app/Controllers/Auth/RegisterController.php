@@ -78,6 +78,9 @@ class RegisterController extends BaseController
         $userInfo = new UserInfo($this->request->getPost());
         $model->addUserInfo($userInfo);
         $model->save($user);
-        return redirect()->route('login')->with('msg', ['body' => 'Usuario Reguistrado Correctamente!']);
+        return redirect()->route('login')->with('msg', [
+            'body' => 'Usuario Reguistrado Correctamente!',
+            'color' => 'is-success'
+        ]);
     }
 }

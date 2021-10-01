@@ -2,7 +2,7 @@
 <?= $this->extend('layout/template')?>
 
 <?= $this->section('title') ?>
-Hello World!
+Registro
 <?= $this->endSection() ?>
 
 <?= $this->section('body')?>

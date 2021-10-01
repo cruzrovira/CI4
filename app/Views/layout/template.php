@@ -13,6 +13,7 @@
 
 <body>
   <?= $this->include('layout/header')?>
+
   <?= $this->renderSection('body')?>
 </body>
 

@@ -4,6 +4,29 @@ $url = base_url(service('request')->uri->getPath());
 ?>
 
 <section class="hero is-link">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+
+          <span class="navbar-burger" data-target="navbarMenuHeroB">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroB" class="navbar-menu">
+          <div class="navbar-end">
+            <a href="<?=base_url(route_to('login'))?>"
+              class="navbar-item <?=  $url === base_url(route_to('login')) ? 'is-active' : ''?> ">
+              login
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
   <div class="hero-body">
     <p class="title">
       Bienvenidos a mi Blog
@@ -24,7 +47,7 @@ $url = base_url(service('request')->uri->getPath());
           <li
             class="<?= $url === base_url(route_to('register')) ? 'is-active' : ''?>">
             <a
-              href="<?= base_url(route_to('register'))?>">Reguistro</a>
+              href="<?= base_url(route_to('register'))?>">Registro</a>
           </li>
           <li>
             <a>Ingreso</a>
@@ -33,4 +56,5 @@ $url = base_url(service('request')->uri->getPath());
       </div>
     </nav>
   </div>
+
 </section>

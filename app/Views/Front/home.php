@@ -1,7 +1,7 @@
 <?= $this->extend('layout/template')?>
 
 <?= $this->section('title') ?>
-Hello World!
+Home
 <?= $this->endSection() ?>
 
 <?= $this->section('body')?>
