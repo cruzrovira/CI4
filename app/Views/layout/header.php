@@ -17,17 +17,12 @@ $url = base_url(service('request')->uri->getPath());
         </div>
         <div id="navbarMenuHeroB" class="navbar-menu">
           <div class="navbar-end">
-            <?php if (session('is_logged') === true):?>
-            <a href="<?=base_url(route_to('logout'))?>"
-              class="navbar-item ">
-              Salir
-            </a>
-            <?php else:?>
+
             <a href="<?=base_url(route_to('login'))?>"
               class="navbar-item <?=  $url === base_url(route_to('login')) ? 'is-active' : ''?> ">
               login
             </a>
-            <?php endif?>
+
           </div>
         </div>
       </div>
@@ -51,15 +46,11 @@ $url = base_url(service('request')->uri->getPath());
             <a
               href="<?= base_url(route_to('home')) ?>">Inicio</a>
           </li>
-
-          <?php if (session('is_logged') !== true):?>
           <li
             class="<?= $url === base_url(route_to('register')) ? 'is-active' : ''?>">
             <a
               href="<?= base_url(route_to('register'))?>">Registro</a>
           </li>
-          <?php endif ?>
-
         </ul>
       </div>
     </nav>
