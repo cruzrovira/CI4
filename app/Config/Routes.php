@@ -40,6 +40,10 @@ $routes->group('auth', ['namespace' => "App\Controllers\Auth"], function ($route
     $routes->post('reguistro', 'RegisterController::store');
     $routes->get('login', 'LoginController::index', ['as' => 'login']);
     $routes->post('login', 'LoginController::login');
+    $routes->get('logout', 'LoginController::logout', ['as' => 'logout']);
+});
+$routes->group('admin', ['namespace' => "App\Controllers\Admin"], function ($routes) {
+    $routes->get('articulos', 'PostsController::index', ['as' => 'posts']);
 });
 
 /*

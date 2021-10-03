@@ -1,5 +1,4 @@
 <?php
-
 namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
@@ -36,7 +35,8 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $indexPage = 'index.php';
+    // si indexpage esta vacio elimina el .php de la url index.php
+    public $indexPage = '';
 
     /**
      * --------------------------------------------------------------------------
