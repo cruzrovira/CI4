@@ -1,5 +1,4 @@
 <?php
-
 namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
@@ -16,9 +15,10 @@ class Filters extends BaseConfig
      * @var array
      */
     public $aliases = [
-        'csrf'     => CSRF::class,
-        'toolbar'  => DebugToolbar::class,
+        'csrf' => CSRF::class,
+        'toolbar' => DebugToolbar::class,
         'honeypot' => Honeypot::class,
+        'Auth' => \App\Filters\AuthFilter::class,
     ];
 
     /**

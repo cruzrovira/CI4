@@ -42,7 +42,7 @@ $routes->group('auth', ['namespace' => "App\Controllers\Auth"], function ($route
     $routes->post('login', 'LoginController::login');
     $routes->get('logout', 'LoginController::logout', ['as' => 'logout']);
 });
-$routes->group('admin', ['namespace' => "App\Controllers\Admin"], function ($routes) {
+$routes->group('admin', ['namespace' => "App\Controllers\Admin", 'filter' => 'Auth'], function ($routes) {
     $routes->get('articulos', 'PostsController::index', ['as' => 'posts']);
 });
 

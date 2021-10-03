@@ -31,12 +31,14 @@ $url = base_url(service('request')->uri->getPath());
   </div>
 
   <div class="hero-body">
-    <p class="title">
-      Bienvenidos a mi Blog
-    </p>
-    <p class="subtitle">
-      Lista de entradas
-    </p>
+    <div class="container">
+      <p class="title">
+        Bienvenidos a mi Blog
+      </p>
+      <p class="subtitle">
+        Lista de entradas
+      </p>
+    </div>
   </div>
   <div class="hero-foot">
     <nav class="tabs is-boxed is-fullwidth">
